@@ -1,13 +1,17 @@
-import React from 'react';
+import { React } from 'react';
+import PropTypes from 'prop-types';
 import Photo from './Photo';
 
 function PhotoList(props) {
-    const results = props.data;
+    let counter = 0;
+    let data = props.data;
     let images;
-    console.log(results)
-
-    images = results.map(image => <Photo server={image.server} secret={image.secret} id={image.id} desc={image.title}/>);
-
+    
+    images = data.map(image => {
+        <Photo server={image.server} id={image.id} secret={image.secret} desc={image.desc}/>
+        counter++;
+    }); 
+    
 
     return (
         <div className="photo-container">
@@ -17,6 +21,10 @@ function PhotoList(props) {
             </ul>
         </div>
     )
+}
+
+PhotoList.propTypes = {
+  data: PropTypes.object
 }
 
 export default PhotoList;
