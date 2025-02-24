@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import Photo from './Photo';
 
 function PhotoList(props) {
-    let counter = 0;
     let data = props.data;
     let images;
-    
-    images = data.map(image => {
-        <Photo server={image.server} id={image.id} secret={image.secret} desc={image.desc}/>
-        counter++;
-    }); 
-    
+
+
+    images = data.map((image, index) => {
+        return <Photo server={image.server} id={image.id} secret={image.secret} desc={image.desc} key={index} />
+        
+    });
 
     return (
         <div className="photo-container">
@@ -24,7 +23,7 @@ function PhotoList(props) {
 }
 
 PhotoList.propTypes = {
-  data: PropTypes.object
+    data: PropTypes.object
 }
 
 export default PhotoList;

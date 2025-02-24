@@ -1,7 +1,7 @@
 import { React, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-function Search({changeQuery}) {
+function Search({ changeQuery }) {
   const searchText = useRef(null);
 
   const handleSubmit = e => {

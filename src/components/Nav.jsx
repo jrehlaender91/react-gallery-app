@@ -7,7 +7,6 @@ function Nav({changeQuery}) {
   const handleSubmit = e => {
     e.preventDefault();
     changeQuery(e.target.innerHTML);
-    //e.currentTarget.reset();
   }
 
   return (

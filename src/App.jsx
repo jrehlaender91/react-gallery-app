@@ -37,9 +37,18 @@ function App() {
     <div className="container">
       <Search changeQuery={handleQueryChange} />
       <Nav changeQuery={handleQueryChange} />
-      <Routes>
-        <Route path="*" element={<PhotoList data={images} />} />
-      </Routes>
+      {
+        loading
+          ? <h2>Loading...</h2>
+          : <Routes>
+            <Route path="/" element={<Navigate replace to="/cats" />} />
+            <Route path="/cats" element={<PhotoList data={images} />} />
+            <Route path="/dogs" element={<PhotoList data={images} />} />
+            <Route path="/computers" element={<PhotoList data={images} />} />
+            <Route path="/search/:query" element={<PhotoList data={images} />} />
+          </Routes>
+      }
+
     </div>
   )
 }
